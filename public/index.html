@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ChatGPT Functional Clone</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+                <h2>ChatGPT Clone</h2>
+
+                <button id="newChatBtn">
+                    + New Chat
+                </button>
+            </div>
+
+            <div class="history-section">
+
+                <h3>Chat History</h3>
+
+                <div id="historyList">
+                    <!-- History will appear here -->
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- Main Chat Area -->
+        <main class="chat-container">
+
+            <!-- Header -->
+            <header class="chat-header">
+
+                <div>
+                    <h1>ChatGPT</h1>
+                    <p>AI Assistant</p>
+                </div>
+
+            </header>
+
+
+            <!-- Messages -->
+            <section
+                id="chatMessages"
+                class="chat-messages">
+
+                <div class="welcome-message">
+
+                    <h2>How can I help you?</h2>
+
+                    <p>
+                        Ask me anything and I'll try to help.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- Input Area -->
+            <div class="input-container">
+
+                <form id="chatForm">
+
+                    <textarea
+                        id="messageInput"
+                        placeholder="Message ChatGPT..."
+                        rows="1"
+                        required>
+                    </textarea>
+
+                    <button
+                        type="submit"
+                        id="sendBtn">
+                        Send
+                    </button>
+
+                </form>
+
+                <p class="disclaimer">
+                    ChatGPT Clone • AI responses are generated
+                    by the Gemini API.
+                </p>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
