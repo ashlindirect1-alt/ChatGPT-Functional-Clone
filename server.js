@@ -1,18 +1,20 @@
 const express = require("express");
 const path = require("path");
+const { GoogleGenAI } = require("@google/genai");
 require("dotenv").config();
 
-const { GoogleGenAI } = require("@google/genai");
-
 const app = express();
-const PORT = 3000;
 
-// Check API key
+// Railway provides PORT automatically
+const PORT = process.env.PORT || 3000;
+
+// Check Gemini API key
 if (!process.env.GEMINI_API_KEY) {
-    console.error("❌ GEMINI_API_KEY is missing in .env");
+    console.error("ERROR: GEMINI_API_KEY is missing.");
     process.exit(1);
 }
 
+// Gemini
 const ai = new GoogleGenAI({
     apiKey: process.env.GEMINI_API_KEY
 });
@@ -32,8 +34,6 @@ app.post("/api/chat", async (req, res) => {
                 error: "Message is required"
             });
         }
-
-        console.log("User:", userMessage);
 
         const response = await ai.models.generateContent({
             model: "gemini-flash-latest",
@@ -59,5 +59,5 @@ app.post("/api/chat", async (req, res) => {
 
 // Start server
 app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+    console.log(`Server running on port ${PORT}`);
 });
